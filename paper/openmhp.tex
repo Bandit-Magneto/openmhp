@@ -559,7 +559,7 @@ self-driving-laboratory community including the SiLA and OPC UA LADS standards b
 criteria were not written with OpenMHP in view, which makes them a more useful yardstick than
 any we could propose. Table~\ref{tab:scorecard} scores OpenMHP against all twenty-one.
 
-The weighted result is 34.5 of 46 for a standalone instrument, and 36.5 of 50 including the
+The weighted result is 36.0 of 46 for a standalone instrument, and 38.0 of 50 including the
 two cell-integration criteria that apply to a protocol. Three findings matter more than the
 total.
 
@@ -570,14 +570,15 @@ Section~\ref{sec:protocol} exists to answer. That the independently derived crit
 mechanism coincide is the strongest external evidence we have that the design addresses a
 real requirement rather than a self-selected one.
 
-Second, two of the five Critical criteria score Partial rather than Pass, and both are
-specification gaps rather than implementation debt. A third, C3, was Partial when we first
-scored it and is now a Pass: the error envelope gained a device-anchored timestamp, which
-was its only missing sub-test. C5 returns results headlessly and
-linked to the execution, but leaves them untyped because actions declare no output schema.
-C2 now types and bounds action parameters to any depth and adopts UCUM, but still neither
-declares resolution nor reports an applied default. Each remaining gap is a small,
-backward-compatible change, and together they would move the Critical tier from 13.5 of 18 to
+Second, one of the five Critical criteria still scores Partial. Two others did when we
+first scored them and were closed by specification changes the exercise identified: C3 gained
+a device-anchored timestamp on the error envelope, and C2 gained declared resolution,
+nullability and defaults, the last of which is reported back on every response and on the job
+so that a substituted value is never applied in silence. The remaining one is C5. C5 returns results headlessly and linked to
+the execution, but leaves them untyped because actions declare no output schema. That is a
+deliberate choice rather than an oversight: instrument results vary so widely that we judged
+a declared result contract more likely to be wrong than useful, and we record the cost here
+rather than hide it. It is a small, backward-compatible change, and together they would move the Critical tier from 13.5 of 18 to
 18 of 18. We state them here rather than defer them because the same paper observes that
 protocol compliance does not establish laboratory interoperability, and these three are
 exactly where that gap opens.
