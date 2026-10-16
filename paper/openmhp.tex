@@ -559,7 +559,7 @@ self-driving-laboratory community including the SiLA and OPC UA LADS standards b
 criteria were not written with OpenMHP in view, which makes them a more useful yardstick than
 any we could propose. Table~\ref{tab:scorecard} scores OpenMHP against all twenty-one.
 
-The weighted result is 36.0 of 46 for a standalone instrument, and 38.0 of 50 including the
+The weighted result is 39.0 of 46 for a standalone instrument, and 41.0 of 50 including the
 two cell-integration criteria that apply to a protocol. Three findings matter more than the
 total.
 
@@ -570,15 +570,18 @@ Section~\ref{sec:protocol} exists to answer. That the independently derived crit
 mechanism coincide is the strongest external evidence we have that the design addresses a
 real requirement rather than a self-selected one.
 
-Second, one of the five Critical criteria still scores Partial. Two others did when we
-first scored them and were closed by specification changes the exercise identified: C3 gained
-a device-anchored timestamp on the error envelope, and C2 gained declared resolution,
-nullability and defaults, the last of which is reported back on every response and on the job
-so that a substituted value is never applied in silence. The remaining one is C5. C5 returns results headlessly and linked to
-the execution, but leaves them untyped because actions declare no output schema. That is a
-deliberate choice rather than an oversight: instrument results vary so widely that we judged
-a declared result contract more likely to be wrong than useful, and we record the cost here
-rather than hide it. It is a small, backward-compatible change, and together they would move the Critical tier from 13.5 of 18 to
+Second, all five Critical criteria now pass, and three of them did not when we first
+scored. Each was closed by a specification change the exercise identified rather than by
+reinterpreting the criterion: C3 gained a device-anchored timestamp on the error envelope;
+C2 gained declared resolution, nullability and defaults, the last reported back on every
+response and on the job so a substituted value is never applied in silence; and C5 gained an
+optional result contract. We regard this as the scorecard's main value to us. Three gaps that
+we had not identified in two years of designing the protocol were found in an afternoon by
+scoring it against criteria somebody else wrote. Declaring a result contract is optional, which was
+the condition for adding one at all: instrument outputs vary so widely that a mandatory
+schema would be wrong more often than useful, while an optional one lets a chromatograph
+declare its peak table and a camera declare nothing. Each remaining gap is a small,
+backward-compatible change, and together they would move the Critical tier from 13.5 of 18 to
 18 of 18. We state them here rather than defer them because the same paper observes that
 protocol compliance does not establish laboratory interoperability, and these three are
 exactly where that gap opens.
